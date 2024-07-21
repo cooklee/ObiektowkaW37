@@ -1,12 +1,3 @@
-def dodaj_ksiazke():
-    print("dodaje ksiazke")
-
-def update_book():
-    print("modyfikuje ksizke")
-
-def del_book():
-    print("usuwam ksiazke")
-
 class Option:
 
     def __init__(self, name, funk):
