@@ -6,6 +6,14 @@ class A:
         print(f"|           {self.opis}                |")
         print("_________________________________________")
 
+    @classmethod
+    def wypisz(cls):
+        print(cls.opis)
+
+    @staticmethod
+    def cos_tam_cos_tam():
+        print(B.opis)
+
 
 class B(A):
     opis = "pies pogryzł ale"
@@ -14,6 +22,10 @@ class B(A):
         super().wypisz_ladnie_opis()
         print("koniec")
 
-
+a =A()
+a.wypisz()
 b = B()
-b.wypisz_ladnie_opis()
+b.wypisz()
+a.cos_tam_cos_tam()
+b.cos_tam_cos_tam()
+
