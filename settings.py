@@ -3,5 +3,5 @@ database_settings = {
     'port': '5433',
     'user': 'postgres',
     'password': 'vetjopoco',
-    'dbname': 'exercises'
+    'dbname': 'skelpw37'
 }
