@@ -23,6 +23,25 @@ class User:
         self.id = id[0][0]
         print(self.id)
 
+    @classmethod
+    def get_user(cls, id):
+        query = f"""
+        select * from user_ where id={id};"""
+        user_row = execute_query(query)[0]
+        u = User(*user_row)
+        return u
+
+    @classmethod
+    def get_users(cls):
+        query = f"""
+                select * from user_;"""
+        user_rows = execute_query(query)
+        users = []
+        for row in user_rows:
+            users.append(User(*row))
+        return users
+
+
 
     @classmethod
     def create_table(cls):
@@ -36,10 +55,14 @@ class User:
         );
         """
         return query
+
+    def __str__(self):
+        return f"{self.id} {self.first_name} {self.last_name} {self.username} {self.password}"
 #
 #
 
 #
 if __name__ == "__main__":
-    u = User(first_name='Gosia', last_name='Pe', username='lafirynda', password='qwerty')
-    u.save()
+    users = User.get_users()
+    for u in users:
+        print(u)
