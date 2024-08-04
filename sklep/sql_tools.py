@@ -1,4 +1,4 @@
-from settings import database_settings
+from local_settings import database_settings
 from psycopg2 import connect
 def execute_query(query):
     connection = connect(**database_settings)

@@ -1,5 +1,5 @@
 import psycopg2
-from settings import database_settings as db_s
+from local_settings import database_settings as db_s
 
 
 connection = psycopg2.connect(**db_s)

@@ -1,5 +1,3 @@
-from psycopg2 import connect
-from settings import database_settings
 from sklep.sql_tools import execute_query
 
 
