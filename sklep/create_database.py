@@ -1,5 +1,14 @@
 from sklep.sql_tools import execute_query
-from model import User
+from sklep.model import User_, Product, ItemInCart, Cart
 
-execute_query(User.create_table())
+models = [
+    User_, Product, Cart, ItemInCart
+]
+
+for model in models:
+    try:
+        execute_query(model.create_table())
+    except Exception as e:
+        print(e)
+
 
