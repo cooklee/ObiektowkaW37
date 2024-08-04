@@ -99,6 +99,22 @@ class User_(DatabaseEntity):
         self.username = username
         self.password = password
 
+    def __str__(self):
+        return f"{self.id} {self.first_name} {self.last_name} {self.username} {self.password}"
+
+
+    @classmethod
+    def login(cls, username, password):
+        query = f"""
+        select * from {cls._get_table_name()} WHERE username='{username}' and password='{password}'"""
+        try:
+            row = execute_query(query)[0]
+            if row:
+                u = User_(*row)
+                return u
+        except IndexError:
+            return None
+
 
 class Product(DatabaseEntity):
     columns = {

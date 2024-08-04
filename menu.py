@@ -1,11 +1,12 @@
 class Option:
 
-    def __init__(self, name, funk):
+    def __init__(self, name, funk, *param):
         self.name = name
         self.funk = funk
+        self.param = param
 
     def execute(self):
-        self.funk()
+        self.funk(*self.param)
 
     def __str__(self):
         return self.name
